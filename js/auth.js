@@ -1,26 +1,27 @@
 function authLogin() {
-    const plateInput = document.getElementById('plateInput').value.trim();
-    if (!plateInput) {
-        alert("กรุณากรอกเลขทะเบียนรถค่ะ");
+    const inputElement = document.getElementById('plateInput');
+    const plate = inputElement.value.trim();
+
+    if (!plate) {
+        alert("โปรดระบุเลขทะเบียนรถ");
         return;
     }
 
-    if (carData[plateInput]) {
-        currentCar = carData[plateInput]; 
-        renderDashboard();       
+    if (carData[plate]) {
+        localStorage.setItem("currentPlate", plate);
+        startApp(plate);
+        
         document.getElementById('page-login').classList.add('hidden');
         document.getElementById('page-dashboard').classList.remove('hidden');
-
     } else {
-        alert("❌ ไม่พบข้อมูลรถทะเบียนนี้ในระบบ\n(Demo: ลองใช้ 1กข9999 ดูนะคะ)");
+        alert(`ไม่พบข้อมูลทะเบียน "${plate}" ในระบบ\nกรุณาตรวจสอบความถูกต้อง หรือใช้ข้อมูลทดสอบ: 1กข9999`);
     }
 }
 
 function authLogout() {
-    currentCar = null;
-    document.getElementById('plateInput').value = ""; 
-    
+    localStorage.removeItem("currentPlate");
+    document.getElementById('plateInput').value = "";
     document.getElementById('page-dashboard').classList.add('hidden');
-    document.getElementById('page-login').classList.remove('hidden');
     document.getElementById('page-guide').classList.add('hidden');
+    document.getElementById('page-login').classList.remove('hidden');
 }
