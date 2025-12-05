@@ -87,11 +87,13 @@ function goToGuide(partName) {
 
     const banner = document.getElementById('adBanner');
     if (issue.adImage) {
-        banner.innerHTML = `<img src="${issue.adImage}" style="width:100%; height:100%; object-fit:cover; border-radius:12px;">`;
+        banner.innerHTML = `<img src="${issue.adImage}" style="width:100%; height:100%; object-fit:contain; border-radius:12px;">`;       
         banner.style.padding = "0";
+        banner.style.backgroundColor = "#f4f4f4";
     } else {
         banner.innerText = issue.adText;
         banner.style.padding = "20px";
+        banner.style.backgroundColor = "#ddd";
     }
 
     document.getElementById('priceDiy').innerText = issue.priceDiy;
