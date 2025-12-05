@@ -5,9 +5,8 @@
 body {
     margin: 0; padding: 0;
     font-family: 'Noto Sans Thai', sans-serif;
-    /* ✨ พื้นหลังสีดำเทา (Dark Mode) ✨ */
-    background-color: #2b2a2a; 
-    color: #e0e0e0;
+    background-color: #121212; 
+    color: #e0e0e0; 
     line-height: 1.5;
 }
 
@@ -15,7 +14,7 @@ body {
     min-height: 100vh; width: 100%; position: relative;
     padding-top: 80px; 
     animation: fadeEffect 0.4s ease-in-out;
-    background-color: #2b2a2a;;
+    background-color: #121212;
 }
 
 
@@ -24,20 +23,19 @@ body {
     color: #fff; height: 80px; padding: 0 20px;
     display: flex; justify-content: space-between; align-items: center;
     position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
-    box-shadow: 0 2px 10px rgba(255, 102, 0, 0.1);
+    box-shadow: 0 2px 10px rgba(255, 102, 0, 0.15);
 }
 
 .header-left, .header-right { display: flex; align-items: center; z-index: 2; flex: 0 0 80px; }
 .header-right { justify-content: flex-end; }
-
-
 .header-center {
     position: absolute; left: 50%; transform: translateX(-50%);
-    text-align: center; font-weight: 600; font-size: 1.2rem;
+    text-align: center; font-weight: 600; font-size: 1.1rem;
     white-space: nowrap; z-index: 1; pointer-events: none;
-    max-width: 50%; 
+    max-width: 40%; 
     overflow: hidden; 
     text-overflow: ellipsis;
+    color: #fff;
 }
 
 .header-logo { height: 40px; width: auto; object-fit: contain; }
@@ -57,7 +55,6 @@ body {
 .car-section { flex: 1.5; position: relative; }
 .car-image { width: 100%; display: block; filter: drop-shadow(0 15px 15px rgba(0,0,0,0.5)) brightness(1.1); }
 
-
 .stats-section {
     flex: 1;
     background: #1e1e1e;
@@ -69,6 +66,7 @@ body {
 
 
 .car-diagram { position: relative; width: 100%; margin: 0 auto; }
+
 .hotspot {
     position: absolute; width: 24px; height: 24px;
     border-radius: 50%; border: 3px solid #fff;
@@ -84,13 +82,16 @@ body {
 
 .tooltip-box {
     position: absolute; bottom: 45px; left: 50%; transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.95); /* พื้นดำ */
-    color: #fff; padding: 12px; 
-    border-radius: 8px; font-size: 0.85rem; width: 220px; text-align: center;
-    pointer-events: none; opacity: 0; transition: opacity 0.2s; z-index: 999;
+    background-color: #000000 !important; 
+    color: #ffffff !important; 
+    border: 1px solid #ff6600;    
+    padding: 12px; border-radius: 8px; font-size: 0.85rem; width: 220px; text-align: center;
+    pointer-events: none; opacity: 0; transition: opacity 0.2s; z-index: 9999;
     visibility: hidden;
 }
-.tooltip-box b { color: #ffffff; display: block; margin-bottom: 5px; }
+
+.tooltip-box b { color: #ff6600 !important; display: block; margin-bottom: 5px; }
+
 .hotspot:hover .tooltip-box { opacity: 1; visibility: visible; }
 
 @keyframes pulse {
@@ -104,5 +105,5 @@ body {
 @media (max-width: 768px) {
     .dashboard-layout { flex-direction: column; }
     .stats-section { width: 100%; }
-    .header-center { font-size: 1rem; max-width: 60%; }
+    .header-center { font-size: 1rem; }
 }

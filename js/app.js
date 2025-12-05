@@ -22,22 +22,22 @@ function renderDashboard() {
     if (!currentCar) return;
 
     document.getElementById('carTitle').innerText = `${currentCar.brand} ${currentCar.model}`;
-    document.getElementById('carMileage').innerText = currentCar.mileage;
-    document.getElementById('carFuel').innerText = currentCar.fuel;
-    document.getElementById('carInsurance').innerText = currentCar.insurance;
+    document.getElementById('carMileage').innerText = currentCar.mileage || "-";
+    document.getElementById('carFuel').innerText = currentCar.fuel || "-";
+    document.getElementById('carInsurance').innerText = currentCar.insurance || "-";
 
     const container = document.getElementById('carContainer');
     const statsList = document.getElementById('statsList');
-    
-    if(container) container.querySelectorAll('.hotspot').forEach(el => el.remove());
-    if(statsList) statsList.innerHTML = "";
+
+    if (!container || !statsList) return;
+
+
+    container.querySelectorAll('.hotspot').forEach(el => el.remove());
+    statsList.innerHTML = "";
 
     for (const [part, data] of Object.entries(currentCar.parts)) {
-        let color = '#00c300';
-        if (data.status === 'warning') color = '#ffcc00';
-        if (data.status === 'critical') color = '#ff0000';
 
-        if (container && partPositions[part]) {
+        if (partPositions[part]) {
             const spot = document.createElement('div');
             spot.className = `hotspot status-${data.status}`;
             spot.style.top = partPositions[part].top;
@@ -45,44 +45,48 @@ function renderDashboard() {
 
             const info = repairData[part];
             const tooltip = document.createElement('div');
-            tooltip.className = 'tooltip-box';
-            tooltip.innerHTML = `<b>${info.title}</b><br>${info.preventive}`;
-            spot.appendChild(tooltip);
 
+            tooltip.className = 'tooltip-box';
+            tooltip.innerHTML = `<b>${info.title} (${data.percent}%)</b><br>${info.preventive}`;
+            
+            spot.appendChild(tooltip);
             spot.onclick = () => {
                 if (data.status !== 'good') goToGuide(part);
-                else alert(`✅ ${info.title} สุขภาพดีเยี่ยม (${data.percent}%)`);
+                else alert(`✅ ${info.title} แข็งแรงดี (${data.percent}%)`);
             };
             container.appendChild(spot);
         }
 
-        if (statsList) {
-            const statItem = document.createElement('div');
-            statItem.className = 'stat-item';
-            statItem.innerHTML = `
-                <div class="stat-header">
-                    <span>${partNames[part] || part}</span>
-                    <span style="color:${color}">${data.percent}%</span>
-                </div>
-                <div class="stat-bar-bg">
-                    <div class="stat-bar-fill" style="width: ${data.percent}%; background-color: ${color};"></div>
-                </div>
-            `;
-            statsList.appendChild(statItem);
-        }
+        const statItem = document.createElement('div');
+        statItem.className = 'stat-item';
+        let color = '#00c300';
+        if (data.status === 'warning') color = '#ffcc00';
+        if (data.status === 'critical') color = '#ff0000';
+
+        statItem.innerHTML = `
+            <div class="stat-header">
+                <span>${partNames[part] || part}</span>
+                <span style="color:${color}">${data.percent}%</span>
+            </div>
+            <div class="stat-bar-bg">
+                <div class="stat-bar-fill" style="width: ${data.percent}%; background-color: ${color};"></div>
+            </div>
+        `;
+        statsList.appendChild(statItem);
     }
 }
 
 function goToGuide(partName) {
-    const issue = repairData[partName || 'engine'];
+    if (!partName) partName = 'engine';
+    const issue = repairData[partName];
     const banner = document.getElementById('adBanner');
     
     if (issue.adImage) {
-        banner.innerHTML = `<img src="${issue.adImage}" style="width:100%; height:100%; object-fit:contain;">`;
+        banner.innerHTML = `<img src="${issue.adImage}" style="width:100%; height:100%; object-fit:contain; border-radius:12px;">`;
         banner.style.padding = "0"; banner.style.backgroundColor = "#fff";
     } else {
         banner.innerText = issue.adText;
-        banner.style.padding = "20px"; banner.style.backgroundColor = "#eee";
+        banner.style.padding = "20px";
     }
 
     document.getElementById('guideTitle').innerText = `การแก้ไข: ${issue.title}`;
