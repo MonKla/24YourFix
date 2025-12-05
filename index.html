@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>24Carfix Companion</title>
+    <title>24YourFix</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/login.css">
@@ -18,8 +18,7 @@
             <div class="header-center">
                 <span>ตรวจสอบสถานะ</span>
             </div>
-            <div class="header-right">
-                </div>
+            <div class="header-right"></div>
         </div>
 
         <div class="login-container">
@@ -31,7 +30,7 @@
                 </div>
                 <button onclick="authLogin()" class="btn btn-primary">เข้าสู่ระบบ</button>
                 <div class="demo-hint">
-                    <small>Demo: 1กข9999</small>
+                    <small>Demo: 1กข9999 (รถเก่า) หรือ 2กค5555 (รถใหม่)</small>
                 </div>
             </div>
         </div>
@@ -55,13 +54,18 @@
         <div class="container center-content">
             <h2 id="carTitle">กำลังประมวลผล...</h2>
             
-            <div class="health-circle-container">
-                <div class="health-circle" id="healthCircle">
-                    <span id="healthScore">0%</span>
-                    <small>สภาพรถ</small>
+            <div class="dashboard-layout">
+                
+                <div id="carContainer" class="car-section">
+                    <img src="asset/car-side.png" alt="Car Diagram" class="car-image">
+                    </div>
+
+                <div class="stats-section">
+                    <div class="stats-title">สถานะชิ้นส่วน (Health Check)</div>
+                    <div id="statsList">
+                        </div>
                 </div>
             </div>
-
             <div class="card detail-card">
                 <h3>ข้อมูลจำเพาะ</h3>
                 <div class="info-grid">
@@ -79,12 +83,7 @@
                     </div>
                 </div>
             </div>
-
-            <div class="card warning-card">
-                <h3>สิ่งที่ต้องดูแล: <span id="issueName">...</span></h3>
-                <p>พบความเสี่ยงจากสถิติรุ่นรถของคุณ</p>
-                <button onclick="goToGuide()" class="btn btn-primary">ดูราคาประเมิน</button>
-            </div>
+        </div>
         </div>
     </section>
 
@@ -115,8 +114,8 @@
                 <h3>ตารางราคาประเมิน</h3>
                 <table class="price-table">
                     <tr>
-                        <th>ทำเอง</th>
-                        <th>ช่าง 24Carfix</th>
+                        <th>ดำเนินการเอง</th>
+                        <th>บริการ 24Carfix</th>
                     </tr>
                     <tr>
                         <td id="priceDiy">0.-</td>
@@ -126,8 +125,8 @@
             </div>
 
             <div class="contact-area">
-                <button onclick="openContact()" class="btn btn-primary">โทรเรียกช่าง</button>
-                <button onclick="openLine()" class="btn btn-secondary">ไลน์หาช่าง</button>
+                <button onclick="openContact()" class="btn btn-primary">ติดต่อเจ้าหน้าที่</button>
+                <button onclick="openLine()" class="btn btn-secondary">ติดต่อผ่าน LINE</button>
             </div>
         </div>
     </section>

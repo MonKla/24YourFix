@@ -25,10 +25,10 @@ body {
     background-color: #111;
     color: #fff;
     height: 80px;
-    padding: 0 30px;   
+    padding: 0 30px;
     display: flex;
     justify-content: space-between;
-    align-items: center;   
+    align-items: center;
     position: fixed;
     top: 0;
     left: 0;
@@ -36,17 +36,6 @@ body {
     z-index: 1000;
     box-shadow: 0 2px 10px rgba(0,0,0,0.2);
 }
-
-.header-left, .header-right {
-    display: flex;
-    align-items: center;
-    z-index: 2;
-}
-
-.header-right {
-    justify-content: flex-end;
-}
-
 
 .header-center {
     position: absolute;
@@ -60,62 +49,98 @@ body {
     pointer-events: none;
 }
 
-.header-logo {
-    height: 45px;
-    width: auto;
-    object-fit: contain;
-}
-
+.header-logo { height: 45px; width: auto; }
 .btn-text {
-    background: none;
-    color: #fff;
-    border: none;
-    font-size: 1rem;
-    cursor: pointer;
-    padding: 0;
-    font-family: 'Noto Sans Thai', sans-serif;
-    display: flex;
-    align-items: center;
-    gap: 5px;
+    background: none; color: #fff; border: none; font-size: 1rem;
+    cursor: pointer; padding: 0; font-family: 'Noto Sans Thai', sans-serif;
 }
 .btn-text:hover { color: #ff6600; }
 
 
 .container {
     width: 100%;
-    max-width: 800px; 
+    max-width: 800px;
     margin: 0 auto;
     padding: 20px;
     padding-bottom: 80px;
 }
-
 .center-content {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    min-height: 80vh;
+    text-align: center; display: flex; flex-direction: column;
+    justify-content: center; min-height: 80vh;
 }
-
 .hidden { display: none !important; }
 
-@keyframes fadeEffect {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+
+.car-diagram {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;600;700&display=swap');
+
+* { box-sizing: border-box; }
+body { margin: 0; padding: 0; font-family: 'Noto Sans Thai', sans-serif; background-color: #f4f6f8; color: #333; line-height: 1.5; }
+.screen { min-height: 100vh; width: 100%; position: relative; padding-top: 80px; animation: fadeEffect 0.4s ease-in-out; background-color: #f4f6f8; }
+.header { background-color: #111; color: #fff; height: 80px; padding: 0 30px; display: flex; justify-content: space-between; align-items: center; position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+.header-center { position: absolute; left: 50%; transform: translateX(-50%); text-align: center; font-weight: 600; font-size: 1.2rem; white-space: nowrap; z-index: 1; pointer-events: none; }
+.header-logo { height: 45px; width: auto; }
+.btn-text { background: none; color: #fff; border: none; font-size: 1rem; cursor: pointer; padding: 0; font-family: 'Noto Sans Thai', sans-serif; }
+.btn-text:hover { color: #ff6600; }
+.container { width: 100%; max-width: 900px; margin: 0 auto; padding: 20px; padding-bottom: 80px; }
+.center-content { text-align: center; display: flex; flex-direction: column; justify-content: center; min-height: 80vh; }
+.hidden { display: none !important; }
+
+
+.dashboard-layout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 20px;
 }
 
 
-@media (min-width: 768px) {
-    .header-center { font-size: 1.4rem; }
-
-    .card {
-        padding: 30px;
-    }
+.car-section {
+    flex: 1.5;
+    position: relative;
 }
 
+.car-image { width: 100%; display: block; filter: drop-shadow(0 15px 15px rgba(0,0,0,0.15)); }
 
-@media (max-width: 375px) {
-    .header { padding: 0 15px; }
-    .header-center { font-size: 1rem; }
-    .btn-text { font-size: 0.8rem; }
+
+.stats-section {
+    flex: 1;
+    background: white;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    min-width: 280px;
+}
+
+.stats-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 15px; color: #555; text-align: left; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+
+
+.stat-item { margin-bottom: 15px; text-align: left; }
+.stat-header { display: flex; justify-content: space-between; margin-bottom: 5px; font-size: 0.9rem; font-weight: 500; }
+.stat-bar-bg { width: 100%; height: 10px; background: #eee; border-radius: 5px; overflow: hidden; }
+.stat-bar-fill { height: 100%; border-radius: 5px; transition: width 1s ease-in-out; }
+
+
+.hotspot { position: absolute; width: 24px; height: 24px; border-radius: 50%; border: 3px solid white; box-shadow: 0 2px 8px rgba(0,0,0,0.4); cursor: pointer; transition: transform 0.2s; z-index: 10; animation: pulse 2s infinite; }
+.hotspot:hover { transform: scale(1.3); }
+.status-good { background-color: #00c300; }
+.status-warning { background-color: #ffcc00; }
+.status-critical { background-color: #ff0000; }
+.tooltip-box { position: absolute; bottom: 35px; left: 50%; transform: translateX(-50%); background: rgba(30, 30, 30, 0.95); color: white; padding: 12px; border-radius: 8px; font-size: 0.85rem; width: 220px; text-align: center; pointer-events: none; opacity: 0; transition: opacity 0.2s, bottom 0.2s; z-index: 20; visibility: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+.hotspot:hover .tooltip-box { opacity: 1; visibility: visible; bottom: 45px; }
+
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); } 100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); } }
+@keyframes fadeEffect { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+
+@media (max-width: 768px) {
+    .dashboard-layout { flex-direction: column; }
+    .stats-section { width: 100%; }
 }
