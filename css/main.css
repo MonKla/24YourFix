@@ -17,15 +17,7 @@ body {
     position: relative;
     padding-top: 80px; 
     animation: fadeEffect 0.4s ease-in-out;
-    background: #fff;
-}
-
-
-.container {
-    width: 100%;
-    margin: 0 auto;
-    padding: 20px;
-    padding-bottom: 80px;
+    background-color: #f4f6f8;
 }
 
 
@@ -33,16 +25,13 @@ body {
     background-color: #111;
     color: #fff;
     height: 80px;
-    padding: 0 20px;
-    
+    padding: 0 30px;   
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    
-    /* Fixed ติดหัวบนสุด */
+    align-items: center;   
     position: fixed;
     top: 0;
-    left: 0; 
+    left: 0;
     width: 100%;
     z-index: 1000;
     box-shadow: 0 2px 10px rgba(0,0,0,0.2);
@@ -58,6 +47,7 @@ body {
     justify-content: flex-end;
 }
 
+
 .header-center {
     position: absolute;
     left: 50%;
@@ -70,7 +60,6 @@ body {
     pointer-events: none;
 }
 
-
 .header-logo {
     height: 45px;
     width: auto;
@@ -81,7 +70,7 @@ body {
     background: none;
     color: #fff;
     border: none;
-    font-size: 0.95rem;
+    font-size: 1rem;
     cursor: pointer;
     padding: 0;
     font-family: 'Noto Sans Thai', sans-serif;
@@ -92,6 +81,14 @@ body {
 .btn-text:hover { color: #ff6600; }
 
 
+.container {
+    width: 100%;
+    max-width: 800px; 
+    margin: 0 auto;
+    padding: 20px;
+    padding-bottom: 80px;
+}
+
 .center-content {
     text-align: center;
     display: flex;
@@ -99,6 +96,7 @@ body {
     justify-content: center;
     min-height: 80vh;
 }
+
 .hidden { display: none !important; }
 
 @keyframes fadeEffect {
@@ -107,35 +105,17 @@ body {
 }
 
 
-@media (min-width: 481px) {
-    body {
-        background-color: #e0e5ec;
-        display: flex;
-        justify-content: center;
-        min-height: 100vh;
-    }
+@media (min-width: 768px) {
+    .header-center { font-size: 1.4rem; }
 
-    .screen {
-        max-width: 480px;
-        margin: 0 auto;
-        min-height: 100vh;
-        box-shadow: 0 0 50px rgba(0,0,0,0.1);
-        border-left: 1px solid #ddd;
-        border-right: 1px solid #ddd;
-    }
-
-    .header {
-        max-width: 480px;
-        left: 50%;
-        transform: translateX(-50%);
+    .card {
+        padding: 30px;
     }
 }
 
+
 @media (max-width: 375px) {
-    .header { padding: 0 15px; height: 70px; }
-    .screen { padding-top: 70px; }
-    .header-logo { height: 35px; }
+    .header { padding: 0 15px; }
     .header-center { font-size: 1rem; }
     .btn-text { font-size: 0.8rem; }
-    .container { padding: 15px; }
 }

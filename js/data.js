@@ -4,7 +4,7 @@ const carData = {
         model: "Yaris", 
         year: 2017, 
         issueType: "battery",
-        mileage: "101.800 กม.",
+        mileage: "101,800 กม.",
         fuel: "เบนซิน 91",
         insurance: "หมดอายุ: 12 ส.ค. 68"
     },
