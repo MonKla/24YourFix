@@ -1,0 +1,192 @@
+.card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eee;
+    transition: transform 0.2s ease;
+}
+
+
+.card:active {
+    transform: scale(0.98);
+}
+
+
+.warning-card {
+    border-left: 6px solid #ff6600;
+    background: #fff5eb;
+}
+
+
+.card h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    color: #111;
+}
+
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    border-radius: 50px;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s ease;
+    margin-top: 10px;
+    font-family: 'Sarabun', sans-serif;
+}
+
+
+.btn-primary {
+    background-color: #ff6600;
+    color: white;
+    box-shadow: 0 4px 10px rgba(255, 102, 0, 0.3);
+}
+.btn-primary:hover {
+    background-color: #e05a00;
+}
+
+
+.btn-secondary {
+    background-color: #06c755;
+    color: white;
+    box-shadow: 0 4px 10px rgba(6, 199, 85, 0.3);
+}
+
+
+.btn-text {
+    background: none;
+    color: #ccc;
+    border: none;
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    width: auto;
+    cursor: pointer;
+}
+.btn-text:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+
+.input-field {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    color: #333;
+    outline: none;
+    transition: border-color 0.3s;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.input-field:focus {
+    border-color: #ff6600;
+    background-color: white;
+}
+
+
+.health-circle-container {
+    display: flex;
+    justify-content: center;
+    padding: 30px 0;
+}
+
+.health-circle {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: white;
+    border: 10px solid #ddd; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+
+.health-circle span {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.health-circle small {
+    font-size: 0.9rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+
+.price-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.price-table th {
+    background-color: #f4f4f4;
+    padding: 12px;
+    font-size: 0.9rem;
+    color: #555;
+    border: 1px solid #eee;
+}
+
+.price-table td {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #eee;
+    font-size: 1.1rem;
+}
+
+
+.highlight {
+    color: #ff6600;
+    font-weight: 700;
+    background-color: #fffaf5;
+}
+
+
+.ad-banner {
+    background-color: #ddd;
+    color: #666;
+    height: 120px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    background-image: linear-gradient(45deg, #f3f3f3 25%, #e2e2e2 25%, #e2e2e2 50%, #f3f3f3 50%, #f3f3f3 75%, #e2e2e2 75%, #e2e2e2 100%);
+    background-size: 20px 20px;
+}
+
+
+.step-list {
+    padding-left: 20px;
+    color: #444;
+}
+.step-list li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+
+.contact-area {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
