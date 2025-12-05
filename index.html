@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>24Yourfix</title>
+    <title>24Carfix Companion</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/login.css">
@@ -15,12 +15,9 @@
             <div class="header-left">
                 <img src="asset/logo.png" alt="Logo" class="header-logo">
             </div>
-            <div class="header-center">
-                <span>ตรวจสอบสถานะ</span>
-            </div>
+            <div class="header-center"><span>ตรวจสอบสถานะ</span></div>
             <div class="header-right"></div>
         </div>
-
         <div class="login-container">
             <div class="login-card">
                 <h3>ยินดีต้อนรับ</h3>
@@ -29,9 +26,7 @@
                     <input type="text" id="plateInput" class="input-field" placeholder="ตัวอย่าง: 1กข9999">
                 </div>
                 <button onclick="authLogin()" class="btn btn-primary">เข้าสู่ระบบ</button>
-                <div class="demo-hint">
-                    <small>Demo: 1กข9999 (รถเก่า) หรือ 2กค5555 (รถใหม่)</small>
-                </div>
+                <div class="demo-hint"><small>Demo: 1กข9999</small></div>
             </div>
         </div>
     </section>
@@ -41,13 +36,9 @@
             <div class="header-left">
                 <img src="asset/logo.png" alt="Logo" class="header-logo">
             </div>
-            <div class="header-center">
-                <span>ข้อมูลยานพาหนะ</span>
-            </div>
+            <div class="header-center"><span>ข้อมูลยานพาหนะ</span></div>
             <div class="header-right">
-                <button onclick="authLogout()" class="btn-text">
-                    ออกจากระบบ ❯
-                </button>
+                <button onclick="authLogout()" class="btn-text">ออกจากระบบ ❯</button>
             </div>
         </div>
 
@@ -57,30 +48,19 @@
             <div class="dashboard-layout">
                 <div id="carContainer" class="car-section">
                     <img src="asset/car-side.png" alt="Car Diagram" class="car-image">
-                    </div>
-
+                </div>
                 <div class="stats-section">
                     <div class="stats-title">สถานะชิ้นส่วน</div>
-                    <div id="statsList">
-                        </div>
+                    <div id="statsList"></div>
                 </div>
             </div>
 
             <div class="card detail-card">
                 <h3>ข้อมูลจำเพาะ</h3>
                 <div class="info-grid">
-                    <div class="info-item">
-                        <span class="label">เลขไมล์</span>
-                        <strong id="carMileage">...</strong>
-                    </div>
-                    <div class="info-item">
-                        <span class="label">เชื้อเพลิง</span>
-                        <strong id="carFuel">...</strong>
-                    </div>
-                    <div class="info-item">
-                        <span class="label">ประกันภัย</span>
-                        <strong id="carInsurance" class="text-green">...</strong>
-                    </div>
+                    <div class="info-item"><span class="label">เลขไมล์</span><strong id="carMileage">...</strong></div>
+                    <div class="info-item"><span class="label">เชื้อเพลิง</span><strong id="carFuel">...</strong></div>
+                    <div class="info-item"><span class="label">ประกันภัย</span><strong id="carInsurance" class="text-green">...</strong></div>
                 </div>
             </div>
         </div>
@@ -91,38 +71,24 @@
             <div class="header-left">
                 <img src="asset/logo.png" alt="Logo" class="header-logo">
             </div>
-            <div class="header-center">
-                <span>รายละเอียดการซ่อม</span>
-            </div>
+            <div class="header-center"><span>รายละเอียดการซ่อม</span></div>
             <div class="header-right">
-                <button onclick="goBack('page-dashboard')" class="btn-text">
-                    ย้อนกลับ ❯
-                </button>
+                <button onclick="goBack('page-dashboard')" class="btn-text">ย้อนกลับ ❯</button>
             </div>
         </div>
-
         <div class="container">
             <div class="ad-banner" id="adBanner">Loading...</div>
-
             <div class="card">
                 <h3 id="guideTitle">ขั้นตอนแก้ไข</h3>
                 <ul id="guideSteps" class="step-list"></ul>
             </div>
-
             <div class="card">
                 <h3>ตารางราคาประเมิน</h3>
                 <table class="price-table">
-                    <tr>
-                        <th>ดำเนินการเอง</th>
-                        <th>บริการ 24Yourfix</th>
-                    </tr>
-                    <tr>
-                        <td id="priceDiy">0.-</td>
-                        <td id="pricePro" class="highlight">0.-</td>
-                    </tr>
+                    <tr><th>ดำเนินการเอง</th><th>บริการ 24Carfix</th></tr>
+                    <tr><td id="priceDiy">0.-</td><td id="pricePro" class="highlight">0.-</td></tr>
                 </table>
             </div>
-
             <div class="contact-area">
                 <button onclick="openContact()" class="btn btn-primary">ติดต่อเจ้าหน้าที่</button>
                 <button onclick="openLine()" class="btn btn-secondary">ติดต่อผ่าน LINE</button>
@@ -133,6 +99,5 @@
     <script src="js/data.js"></script>
     <script src="js/auth.js"></script>
     <script src="js/app.js"></script>
-
 </body>
 </html>

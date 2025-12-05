@@ -1,8 +1,5 @@
-// js/app.js
-
 let currentCar = null;
 
-// พิกัดจุดบนรูปรถ (ปรับตามรูปจริงของเธอ)
 const partPositions = {
     engine:  { top: "38%", left: "78%" },
     battery: { top: "32%", left: "68%" },
@@ -24,17 +21,14 @@ function startApp(plate) {
 function renderDashboard() {
     if (!currentCar) return;
 
-    // 1. ใส่ข้อมูลรถ
     document.getElementById('carTitle').innerText = `${currentCar.brand} ${currentCar.model}`;
     document.getElementById('carMileage').innerText = currentCar.mileage;
     document.getElementById('carFuel').innerText = currentCar.fuel;
     document.getElementById('carInsurance').innerText = currentCar.insurance;
 
-    // 2. สร้างจุดและกราฟ
     const container = document.getElementById('carContainer');
     const statsList = document.getElementById('statsList');
     
-    // เคลียร์ของเก่า
     if(container) container.querySelectorAll('.hotspot').forEach(el => el.remove());
     if(statsList) statsList.innerHTML = "";
 
@@ -43,14 +37,12 @@ function renderDashboard() {
         if (data.status === 'warning') color = '#ffcc00';
         if (data.status === 'critical') color = '#ff0000';
 
-        // A. สร้างจุดบนรถ
         if (container && partPositions[part]) {
             const spot = document.createElement('div');
             spot.className = `hotspot status-${data.status}`;
             spot.style.top = partPositions[part].top;
             spot.style.left = partPositions[part].left;
 
-            // Tooltip
             const info = repairData[part];
             const tooltip = document.createElement('div');
             tooltip.className = 'tooltip-box';
@@ -64,7 +56,6 @@ function renderDashboard() {
             container.appendChild(spot);
         }
 
-        // B. สร้างกราฟด้านข้าง
         if (statsList) {
             const statItem = document.createElement('div');
             statItem.className = 'stat-item';
@@ -86,7 +77,6 @@ function goToGuide(partName) {
     const issue = repairData[partName || 'engine'];
     const banner = document.getElementById('adBanner');
     
-    // โชว์รูปสินค้าแบบเต็มใบ
     if (issue.adImage) {
         banner.innerHTML = `<img src="${issue.adImage}" style="width:100%; height:100%; object-fit:contain;">`;
         banner.style.padding = "0"; banner.style.backgroundColor = "#fff";
