@@ -6,11 +6,12 @@
     <title>24YourFix</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/components.css">
+    <link rel="icon" href="asset/car-side.png" type="image/png">
     <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
 
-    <section id="page-login" class="screen login-bg">
+    <section id="page-login" class="screen login-bg hidden">
         <div class="header">
             <div class="header-left">
                 <img src="asset/logo.png" alt="Logo" class="header-logo">
@@ -26,7 +27,33 @@
                     <input type="text" id="plateInput" class="input-field" placeholder="ตัวอย่าง: 1กข9999">
                 </div>
                 <button onclick="authLogin()" class="btn btn-primary">เข้าสู่ระบบ</button>
-                <div class="demo-hint"><b><a href="" style="color: white; text-decoration: none;">ลงทะเบียน</a></b></div>
+                <div class="demo-hint"><b><a href="#" style="color: white; text-decoration: none;">ลงทะเบียน</a></b></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="page-home" class="screen landing-bg">
+        <nav class="landing-nav">
+            <img src="asset/logo.png" alt="Logo" class="nav-logo">
+            <div class="nav-links">
+                <a href="#" class="active">HOME</a>
+            </div>
+        </nav>
+
+        <div class="container landing-content">
+            <div class="hero-layout">
+                <div class="hero-image">
+                    <img src="asset/lamboo.png" alt="Hero Car"> 
+                </div>
+                <div class="hero-text">
+                    <span class="highlight-tag">#1 PLATFORM</span>
+                    <h1>YOUR CAR<br>YOUR RULES</h1>
+                    <p>คุณเองก็สามารถซ่อมรถยนต์ของคุณได้ด้วยตัวเอง</p>
+                    
+                    <div class="hero-buttons">
+                        <button onclick="goToLogin()" class="btn-red">▶ ลองเลย!</button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -85,7 +112,7 @@
             <div class="card">
                 <h3>ตารางราคาประเมิน</h3>
                 <table class="price-table">
-                    <tr><th>ดำเนินการเอง</th><th>บริการ 24Yourfix</th></tr>
+                    <tr><th>ดำเนินการเอง</th><th>บริการ 24Carfix</th></tr>
                     <tr><td id="priceDiy">0.-</td><td id="pricePro" class="highlight">0.-</td></tr>
                 </table>
             </div>

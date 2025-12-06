@@ -1,5 +1,6 @@
 let currentCar = null;
 
+// พิกัดจุด (สำคัญ! อย่าลบ)
 const partPositions = {
     engine:  { top: "38%", left: "78%" },
     battery: { top: "32%", left: "68%" },
@@ -12,6 +13,13 @@ const partNames = {
     engine: "เครื่องยนต์", battery: "แบตเตอรี่",
     tire: "ยางรถยนต์", brake: "ระบบเบรก", shock: "ช่วงล่าง"
 };
+
+// --- เพิ่มฟังก์ชันนี้: จาก Home -> Login ---
+function goToLogin() {
+    document.getElementById('page-home').classList.add('hidden');
+    document.getElementById('page-login').classList.remove('hidden');
+}
+// ----------------------------------------
 
 function startApp(plate) {
     currentCar = carData[plate];
@@ -31,12 +39,10 @@ function renderDashboard() {
 
     if (!container || !statsList) return;
 
-
     container.querySelectorAll('.hotspot').forEach(el => el.remove());
     statsList.innerHTML = "";
 
     for (const [part, data] of Object.entries(currentCar.parts)) {
-
         if (partPositions[part]) {
             const spot = document.createElement('div');
             spot.className = `hotspot status-${data.status}`;
@@ -45,9 +51,8 @@ function renderDashboard() {
 
             const info = repairData[part];
             const tooltip = document.createElement('div');
-
             tooltip.className = 'tooltip-box';
-            tooltip.innerHTML = `<b>${info.title} (${data.percent}%)</b><br>${info.preventive}`;
+            if(info) tooltip.innerHTML = `<b>${info.title} (${data.percent}%)</b><br>${info.preventive}`;
             
             spot.appendChild(tooltip);
             spot.onclick = () => {
@@ -109,10 +114,6 @@ function goBack(targetId) {
     document.querySelectorAll('.screen').forEach(el => el.classList.add('hidden'));
     document.getElementById(targetId).classList.remove('hidden');
 }
-function authLogout() {
-    localStorage.removeItem("currentPlate");
-    document.getElementById('plateInput').value = "";
-    goBack('page-login');
-}
+
 function openContact() { window.location.href = "tel:1234"; }
 function openLine() { window.open("https://line.me"); }
